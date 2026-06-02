@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Cold Outreach + HubSpot + Apps Script — Playing Camp</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pc-green: #054129;
+    --pc-green-light: #0a6b42;
+    --pc-orange: #F68840;
+    --pc-orange-light: #fda06a;
+    --pc-white: #ffffff;
+    --pc-cream: #faf6f1;
+    --pc-gray: #6b6b6b;
+    --pc-dark: #1a1a1a;
+    --pc-danger: #c0392b;
+    --pc-success: #27ae60;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Comfortaa', sans-serif;
+    background: var(--pc-cream);
+    color: var(--pc-dark);
+    line-height: 1.6;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  header {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 60px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--pc-orange);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6em;
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+  header .subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  header .meta {
+    margin-top: 24px;
+    font-size: 0.85em;
+    opacity: 0.7;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--pc-green);
+    font-size: 2em;
+    margin: 50px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--pc-orange);
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--pc-green-light);
+    font-size: 1.4em;
+    margin: 30px 0 14px;
+  }
+  h4 {
+    color: var(--pc-orange);
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  p { margin-bottom: 14px; }
+  ul, ol { padding-left: 24px; margin-bottom: 14px; }
+  li { margin-bottom: 8px; }
+  .tldr {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin: 30px 0;
+    border-left: 6px solid var(--pc-orange);
+  }
+  .tldr h3 {
+    color: var(--pc-orange);
+    margin-top: 0;
+    font-size: 1.3em;
+  }
+  .tldr p, .tldr li { color: var(--pc-white); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--pc-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  th {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.95em;
+  }
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.92em;
+  }
+  tr:nth-child(even) { background: var(--pc-cream); }
+  .check { color: var(--pc-success); font-weight: 700; }
+  .cross { color: var(--pc-danger); font-weight: 700; }
+  .alert {
+    background: #fff5f0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid var(--pc-danger);
+    font-size: 0.92em;
+  }
+  .alert strong { color: var(--pc-danger); }
+  .success-box {
+    background: #f0f7f3;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid var(--pc-success);
+    font-size: 0.92em;
+  }
+  .success-box strong { color: var(--pc-success); }
+  .code {
+    background: var(--pc-dark);
+    color: #a8e6cf;
+    padding: 20px;
+    border-radius: 6px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.82em;
+    overflow-x: auto;
+    margin: 12px 0;
+    line-height: 1.5;
+  }
+  .code .comment { color: #6b9080; }
+  .code .keyword { color: #f6bd60; }
+  .code .string { color: #84a59d; }
+  .flow-diagram {
+    background: var(--pc-white);
+    padding: 30px;
+    border-radius: 12px;
+    margin: 24px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .flow-step {
+    background: var(--pc-cream);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 8px 0;
+    border-left: 4px solid var(--pc-green);
+    position: relative;
+  }
+  .flow-step.cold { border-left-color: var(--pc-orange); }
+  .flow-step.decision {
+    border-left-color: var(--pc-danger);
+    background: #fff5f0;
+  }
+  .flow-step.warm {
+    border-left-color: var(--pc-success);
+    background: #f0f7f3;
+  }
+  .flow-step .step-num {
+    display: inline-block;
+    background: var(--pc-green);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 700;
+    margin-right: 10px;
+    font-size: 0.85em;
+  }
+  .flow-arrow {
+    text-align: center;
+    font-size: 1.5em;
+    color: var(--pc-orange);
+    margin: 4px 0;
+  }
+  .price-tag {
+    font-family: 'Playfair Display', serif;
+    color: var(--pc-orange);
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+  @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--pc-white);
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .card.do { border-top: 4px solid var(--pc-success); }
+  .card.dont { border-top: 4px solid var(--pc-danger); }
+  .checklist {
+    background: var(--pc-white);
+    padding: 24px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid var(--pc-green);
+  }
+  .checklist h4 { margin-top: 0; }
+  .checklist label {
+    display: block;
+    padding: 8px 0;
+    cursor: pointer;
+  }
+  .checklist input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+  }
+  footer {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 40px 24px;
+    text-align: center;
+    margin-top: 80px;
+  }
+  footer a { color: var(--pc-orange); }
+  .nav {
+    background: var(--pc-white);
+    padding: 16px 24px;
+    border-bottom: 2px solid var(--pc-orange);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .nav a {
+    color: var(--pc-green);
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+  .nav a:hover { color: var(--pc-orange); }
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 8px;
+  }
+  .badge.danger { background: var(--pc-danger); color: white; }
+  .badge.warn { background: var(--pc-orange); color: white; }
+  .badge.success { background: var(--pc-success); color: white; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Cold Outreach + HubSpot</h1>
+  <p class="subtitle">Setup correcto con ReachInbox/Instantly/Smartlead + sincronización Apps Script para Playing Camp</p>
+  <p class="meta">Junio 2026 · Protege dominio principal + ahorra costes HubSpot</p>
+</header>
+
+<nav class="nav">
+  <ul>
+    <li><a href="#tldr">TL;DR</a></li>
+    <li><a href="#por-que-no">Por qué NO HubSpot</a></li>
+    <li><a href="#stack">Stack correcto</a></li>
+    <li><a href="#flujo">Flujo completo</a></li>
+    <li><a href="#tools">Tools cold</a></li>
+    <li><a href="#codigo">Código Apps Script</a></li>
+    <li><a href="#setup">Setup paso a paso</a></li>
+    <li><a href="#costes">Costes</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<div class="tldr" id="tldr">
+  <h3>TL;DR — La regla de oro</h3>
+  <p><strong>NUNCA hagas cold outreach desde HubSpot directamente.</strong></p>
+  <ul>
+    <li>HubSpot prohíbe cold a unverified contacts (suspenden cuenta)</li>
+    <li>Cada cold lead suma marketing contacts = overage automático ($50-250/mes)</li>
+    <li>Quema deliverability de tu dominio principal (playingcamp.es)</li>
+    <li>Sequences HubSpot ≠ cold tools dedicados (sin warm-up, rotation, spintax)</li>
+  </ul>
+  <p><strong>Stack correcto:</strong> Tool cold dedicado (ReachInbox/Instantly/Smartlead) en <strong>dominio separado</strong> → solo las respuestas positivas se sincronizan a HubSpot vía Apps Script webhook.</p>
+  <p><strong>Coste extra: ~$70-90/mes</strong>. Ahorro: dominio protegido + cuenta HubSpot a salvo + marketing contacts bajos.</p>
+</div>
+
+<h2 id="por-que-no">1. Por qué NO usar HubSpot para cold outreach</h2>
+
+<div class="grid-2">
+  <div class="card dont">
+    <h4>✗ Riesgos hacer cold desde HubSpot</h4>
+    <ul>
+      <li><strong>Violación TOS HubSpot</strong>: prohíben purchased lists + cold a unverified contacts. Pueden suspender cuenta sin previo aviso.</li>
+      <li><strong>Marketing Contacts trap</strong>: cada cold contact que añades = facturable. 5.000 leads = salto tier inmediato +$250/mes.</li>
+      <li><strong>Quema dominio playingcamp.es</strong>: quejas spam → Gmail/Outlook te marcan → emails legítimos van a spam.</li>
+      <li><strong>Recovery dominio: 3-6 meses</strong>. Inviable.</li>
+      <li><strong>Quota baja</strong>: 500/día Sales Pro vs ilimitado en tools cold.</li>
+      <li><strong>Sin warm-up automático</strong>.</li>
+      <li><strong>Sin inbox rotation</strong>.</li>
+      <li><strong>Sin spintax/randomization</strong> (anti-spam).</li>
+      <li><strong>Tracking básico</strong> vs Instantly/Smartlead.</li>
+    </ul>
+  </div>
+  <div class="card do">
+    <h4>✓ Ventajas stack separado</h4>
+    <ul>
+      <li><strong>Dominio cold dedicado</strong> (playingcamp.io, hello-pc.com, etc.) — si quema, no afecta principal.</li>
+      <li><strong>Inbox rotation</strong>: 5-10 cuentas warmed up rotando envíos.</li>
+      <li><strong>Warm-up automático</strong>: tool envía/recibe entre cuentas para mejorar reputation.</li>
+      <li><strong>Solo positive replies → HubSpot</strong>: contactos cualificados, no leads fríos.</li>
+      <li><strong>Marketing contacts HubSpot bajos</strong>: solo leads warm = sin overages.</li>
+      <li><strong>Volumen real cold</strong>: 5.000-20.000 emails/mes vs 500/día HubSpot.</li>
+      <li><strong>A/B testing nativo</strong> en tools cold.</li>
+      <li><strong>Compliance GDPR</strong> mejor gestionada por tools dedicados.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="alert">
+  <strong>⚠️ Caso real:</strong> Múltiples usuarios en r/hubspot reportan cuentas suspendidas por importar listas frías. HubSpot escanea patrones y bloquea. <strong>No es leyenda urbana.</strong>
+</div>
+
+<h2 id="stack">2. Stack correcto Playing Camp</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Capa</th>
+      <th>Tool</th>
+      <th>Función</th>
+      <th>Coste/mes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Top of funnel (cold)</td>
+      <td><strong>Instantly / Smartlead</strong></td>
+      <td>Envío masivo cold, warm-up, rotation</td>
+      <td>$37-39</td>
+    </tr>
+    <tr>
+      <td>Dominio secundario</td>
+      <td>playingcamp.io / hello-pc.com</td>
+      <td>Protege dominio principal</td>
+      <td>$1 (anual ~$12)</td>
+    </tr>
+    <tr>
+      <td>Inboxes warmed up</td>
+      <td>Google Workspace (5 cuentas)</td>
+      <td>Rotation envíos</td>
+      <td>$30 ($6 × 5)</td>
+    </tr>
+    <tr>
+      <td>Middleware</td>
+      <td><strong>Apps Script</strong></td>
+      <td>Webhook receiver + sync HubSpot</td>
+      <td>$0</td>
+    </tr>
+    <tr>
+      <td>Mid/bottom funnel (warm)</td>
+      <td><strong>HubSpot Starter</strong></td>
+      <td>CRM, nurturing, deals</td>
+      <td>$15-50</td>
+    </tr>
+    <tr>
+      <td><strong>TOTAL</strong></td>
+      <td></td>
+      <td></td>
+      <td><span class="price-tag">$83-120/mes</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="flujo">3. Flujo completo end-to-end</h2>
+
+<div class="flow-diagram">
+  <div class="flow-step cold">
+    <span class="step-num">1</span>
+    <strong>Discovery leads</strong> — Apify, Apollo, LinkedIn Sales Navigator, scraping festival sites
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step cold">
+    <span class="step-num">2</span>
+    <strong>Lista CSV</strong> → upload a Instantly/Smartlead con tags vertical (mayores/empresas/partnerships)
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step cold">
+    <span class="step-num">3</span>
+    <strong>Campaña cold</strong> desde 5 inboxes warmed up en playingcamp.io
+    <br><small>Email 1 → wait 3d → Email 2 → wait 5d → Email 3 (break-up)</small>
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step decision">
+    <span class="step-num">4</span>
+    <strong>Reply detection</strong> — Instantly/Smartlead detecta respuesta + clasifica sentiment (positive/neutral/negative/OOO)
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step decision">
+    <span class="step-num">5</span>
+    <strong>Webhook fire</strong> — Solo si sentiment = positive OR intent = interested
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step warm">
+    <span class="step-num">6</span>
+    <strong>Apps Script recibe</strong> — Parse JSON, detecta pipeline correspondiente
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step warm">
+    <span class="step-num">7</span>
+    <strong>HubSpot API</strong> — Crea Contact + Deal en pipeline correcto (mayores/empresas/partnerships)
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step warm">
+    <span class="step-num">8</span>
+    <strong>HubSpot nurturing</strong> — Sequence warm desde email principal (carlos@playingcamp.es), agenda Calendly, deal pipeline
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step warm">
+    <span class="step-num">9</span>
+    <strong>Pausa campaña cold</strong> — Apps Script avisa Instantly que pause leads ya convertidos (no double-touch)
+  </div>
+</div>
+
+<h2 id="tools">4. Comparativa tools cold outreach</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Coste</th>
+      <th>Inboxes</th>
+      <th>Warm-up</th>
+      <th>HubSpot sync</th>
+      <th>Mi rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Instantly</strong></td>
+      <td>$37-97/mes</td>
+      <td>Ilimitadas</td>
+      <td>✓ nativo</td>
+      <td>✓ nativo + Zapier</td>
+      <td>⭐⭐⭐⭐⭐ <span class="badge success">TOP PICK</span></td>
+    </tr>
+    <tr>
+      <td><strong>Smartlead</strong></td>
+      <td>$39-94/mes</td>
+      <td>Ilimitadas</td>
+      <td>✓ nativo</td>
+      <td>✓ API/webhook</td>
+      <td>⭐⭐⭐⭐⭐ <span class="badge success">ALTERNATIVA</span></td>
+    </tr>
+    <tr>
+      <td><strong>ReachInbox</strong></td>
+      <td>$39-99/mes</td>
+      <td>Ilimitadas</td>
+      <td>✓ nativo</td>
+      <td>✓ API</td>
+      <td>⭐⭐⭐⭐ <span class="badge warn">El que usabas</span></td>
+    </tr>
+    <tr>
+      <td><strong>Lemlist</strong></td>
+      <td>$59-99/mes</td>
+      <td>Limitado plan base</td>
+      <td>✓ nativo</td>
+      <td>✓ nativo</td>
+      <td>⭐⭐⭐⭐ Caro</td>
+    </tr>
+    <tr>
+      <td><strong>Apollo (outreach)</strong></td>
+      <td>+$49 sobre plan</td>
+      <td>Limitado</td>
+      <td>Limitado</td>
+      <td>✓ nativo</td>
+      <td>⭐⭐⭐ Solo si ya tienes Apollo</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="success-box">
+  <strong>Mi recomendación:</strong> <strong>Instantly</strong> a $37/mes (Growth plan, 5.000 leads activos). Mejor ratio precio/features que ReachInbox. Migración: exporta CSV de ReachInbox + importa a Instantly en 1h.
+</div>
+
+<h2 id="codigo">5. Código Apps Script (sync ReachInbox/Instantly → HubSpot)</h2>
+
+<h3>Setup inicial</h3>
+
+<ol>
+  <li>Apps Script: <code>script.google.com</code> → New Project → "PC_ColdOutreach_Sync"</li>
+  <li>Deploy as Web App → execute as "Me" → access "Anyone"</li>
+  <li>Copia URL del deploy</li>
+  <li>En ReachInbox/Instantly: Settings → Webhooks → "Reply Received" → paste URL</li>
+  <li>Property Service: guarda HUBSPOT_API_KEY y HUBSPOT_PORTAL_ID</li>
+</ol>
+
+<h3>Script completo</h3>
+
+<div class="code"><span class="comment">/**
+ * PC_ColdOutreach_Sync
+ * Recibe webhooks de ReachInbox/Instantly
+ * Solo crea contacto+deal en HubSpot si reply es POSITIVO
+ * Auto-detecta vertical (mayores/empresas/partnerships) por campaign name
+ */</span>
+
+<span class="keyword">const</span> HUBSPOT_API_KEY = PropertiesService.getScriptProperties().getProperty(<span class="string">'HUBSPOT_API_KEY'</span>);
+<span class="keyword">const</span> HUBSPOT_PORTAL_ID = PropertiesService.getScriptProperties().getProperty(<span class="string">'HUBSPOT_PORTAL_ID'</span>);
+
+<span class="comment">// Mapping campaign name → HubSpot pipeline ID</span>
+<span class="keyword">const</span> PIPELINE_MAP = {
+  <span class="string">'mayores'</span>: <span class="string">'pipeline_id_mayores_xxx'</span>,
+  <span class="string">'empresas'</span>: <span class="string">'pipeline_id_empresas_xxx'</span>,
+  <span class="string">'partnerships'</span>: <span class="string">'pipeline_id_partnerships_xxx'</span>,
+  <span class="string">'festivales'</span>: <span class="string">'pipeline_id_partnerships_xxx'</span>
+};
+
+<span class="keyword">function</span> doPost(e) {
+  <span class="keyword">try</span> {
+    <span class="keyword">const</span> data = JSON.parse(e.postData.contents);
+    Logger.log(<span class="string">'Webhook received: '</span> + JSON.stringify(data));
+
+    <span class="comment">// Filtro 1: solo procesamos REPLY events</span>
+    <span class="keyword">if</span> (data.event_type !== <span class="string">'reply_received'</span>) {
+      <span class="keyword">return</span> ContentService.createTextOutput(<span class="string">'ignored: not a reply'</span>);
+    }
+
+    <span class="comment">// Filtro 2: solo POSITIVE sentiment</span>
+    <span class="keyword">const</span> positiveIntents = [<span class="string">'positive'</span>, <span class="string">'interested'</span>, <span class="string">'meeting_request'</span>];
+    <span class="keyword">if</span> (!positiveIntents.includes(data.reply_sentiment)) {
+      Logger.log(<span class="string">'Skipped: sentiment = '</span> + data.reply_sentiment);
+      <span class="keyword">return</span> ContentService.createTextOutput(<span class="string">'ignored: not positive'</span>);
+    }
+
+    <span class="comment">// Detectar vertical desde campaign name</span>
+    <span class="keyword">const</span> vertical = detectVertical(data.campaign_name);
+    <span class="keyword">const</span> pipelineId = PIPELINE_MAP[vertical];
+
+    <span class="comment">// 1. Crear/actualizar contacto en HubSpot</span>
+    <span class="keyword">const</span> contactId = createOrUpdateContact({
+      email: data.lead_email,
+      firstname: data.lead_first_name,
+      lastname: data.lead_last_name,
+      company: data.lead_company,
+      lifecyclestage: <span class="string">'lead'</span>,
+      hs_lead_status: <span class="string">'NEW'</span>,
+      source: <span class="string">'cold_outreach_'</span> + data.tool_source,
+      campaign: data.campaign_name,
+      vertical: vertical,
+      reply_text: data.reply_body.substring(0, 500)
+    });
+
+    <span class="comment">// 2. Crear deal en pipeline correcto</span>
+    <span class="keyword">const</span> dealId = createDeal({
+      dealname: <span class="string">'Cold reply: '</span> + data.lead_company + <span class="string">' ('</span> + vertical + <span class="string">')'</span>,
+      pipeline: pipelineId,
+      dealstage: <span class="string">'qualified_lead'</span>,
+      amount: estimateDealValue(vertical),
+      contactId: contactId
+    });
+
+    <span class="comment">// 3. Crear nota con contexto reply</span>
+    createNote(contactId, dealId, data);
+
+    <span class="comment">// 4. Pausar lead en campaña cold (no double-touch)</span>
+    pauseLeadInColdTool(data.lead_email, data.tool_source);
+
+    <span class="comment">// 5. Notificación Slack/Email a ti</span>
+    sendInternalNotification(data, vertical, dealId);
+
+    <span class="keyword">return</span> ContentService.createTextOutput(JSON.stringify({
+      status: <span class="string">'success'</span>,
+      contactId: contactId,
+      dealId: dealId,
+      pipeline: vertical
+    })).setMimeType(ContentService.MimeType.JSON);
+
+  } <span class="keyword">catch</span> (err) {
+    Logger.log(<span class="string">'ERROR: '</span> + err.toString());
+    <span class="keyword">return</span> ContentService.createTextOutput(<span class="string">'error: '</span> + err.toString());
+  }
+}
+
+<span class="keyword">function</span> detectVertical(campaignName) {
+  <span class="keyword">const</span> name = campaignName.toLowerCase();
+  <span class="keyword">if</span> (name.includes(<span class="string">'mayor'</span>) || name.includes(<span class="string">'residencia'</span>)) <span class="keyword">return</span> <span class="string">'mayores'</span>;
+  <span class="keyword">if</span> (name.includes(<span class="string">'festival'</span>) || name.includes(<span class="string">'conferenc'</span>)) <span class="keyword">return</span> <span class="string">'partnerships'</span>;
+  <span class="keyword">return</span> <span class="string">'empresas'</span>; <span class="comment">// default</span>
+}
+
+<span class="keyword">function</span> createOrUpdateContact(props) {
+  <span class="keyword">const</span> url = <span class="string">'https://api.hubapi.com/crm/v3/objects/contacts/'</span> + props.email + <span class="string">'?idProperty=email'</span>;
+  <span class="keyword">const</span> options = {
+    method: <span class="string">'PATCH'</span>,
+    contentType: <span class="string">'application/json'</span>,
+    headers: { <span class="string">'Authorization'</span>: <span class="string">'Bearer '</span> + HUBSPOT_API_KEY },
+    payload: JSON.stringify({ properties: props }),
+    muteHttpExceptions: <span class="keyword">true</span>
+  };
+  <span class="keyword">const</span> response = UrlFetchApp.fetch(url, options);
+  <span class="keyword">const</span> code = response.getResponseCode();
+
+  <span class="keyword">if</span> (code === 404) {
+    <span class="comment">// Contact doesn't exist, create it</span>
+    <span class="keyword">return</span> createContact(props);
+  }
+  <span class="keyword">return</span> JSON.parse(response.getContentText()).id;
+}
+
+<span class="keyword">function</span> createContact(props) {
+  <span class="keyword">const</span> url = <span class="string">'https://api.hubapi.com/crm/v3/objects/contacts'</span>;
+  <span class="keyword">const</span> response = UrlFetchApp.fetch(url, {
+    method: <span class="string">'POST'</span>,
+    contentType: <span class="string">'application/json'</span>,
+    headers: { <span class="string">'Authorization'</span>: <span class="string">'Bearer '</span> + HUBSPOT_API_KEY },
+    payload: JSON.stringify({ properties: props })
+  });
+  <span class="keyword">return</span> JSON.parse(response.getContentText()).id;
+}
+
+<span class="keyword">function</span> createDeal(props) {
+  <span class="keyword">const</span> url = <span class="string">'https://api.hubapi.com/crm/v3/objects/deals'</span>;
+  <span class="keyword">const</span> dealResponse = UrlFetchApp.fetch(url, {
+    method: <span class="string">'POST'</span>,
+    contentType: <span class="string">'application/json'</span>,
+    headers: { <span class="string">'Authorization'</span>: <span class="string">'Bearer '</span> + HUBSPOT_API_KEY },
+    payload: JSON.stringify({
+      properties: {
+        dealname: props.dealname,
+        pipeline: props.pipeline,
+        dealstage: props.dealstage,
+        amount: props.amount
+      }
+    })
+  });
+  <span class="keyword">const</span> dealId = JSON.parse(dealResponse.getContentText()).id;
+
+  <span class="comment">// Associate contact to deal</span>
+  UrlFetchApp.fetch(
+    <span class="string">'https://api.hubapi.com/crm/v3/objects/deals/'</span> + dealId + <span class="string">'/associations/contacts/'</span> + props.contactId + <span class="string">'/deal_to_contact'</span>,
+    {
+      method: <span class="string">'PUT'</span>,
+      headers: { <span class="string">'Authorization'</span>: <span class="string">'Bearer '</span> + HUBSPOT_API_KEY }
+    }
+  );
+
+  <span class="keyword">return</span> dealId;
+}
+
+<span class="keyword">function</span> createNote(contactId, dealId, data) {
+  <span class="keyword">const</span> noteBody = <span class="string">'COLD REPLY DETECTED\n\n'</span> +
+    <span class="string">'Campaign: '</span> + data.campaign_name + <span class="string">'\n'</span> +
+    <span class="string">'Sentiment: '</span> + data.reply_sentiment + <span class="string">'\n'</span> +
+    <span class="string">'Tool: '</span> + data.tool_source + <span class="string">'\n\n'</span> +
+    <span class="string">'--- REPLY ---\n'</span> + data.reply_body;
+
+  UrlFetchApp.fetch(<span class="string">'https://api.hubapi.com/crm/v3/objects/notes'</span>, {
+    method: <span class="string">'POST'</span>,
+    contentType: <span class="string">'application/json'</span>,
+    headers: { <span class="string">'Authorization'</span>: <span class="string">'Bearer '</span> + HUBSPOT_API_KEY },
+    payload: JSON.stringify({
+      properties: {
+        hs_note_body: noteBody,
+        hs_timestamp: Date.now()
+      },
+      associations: [
+        { to: { id: contactId }, types: [{ associationCategory: <span class="string">'HUBSPOT_DEFINED'</span>, associationTypeId: 202 }] },
+        { to: { id: dealId }, types: [{ associationCategory: <span class="string">'HUBSPOT_DEFINED'</span>, associationTypeId: 214 }] }
+      ]
+    })
+  });
+}
+
+<span class="keyword">function</span> pauseLeadInColdTool(email, tool) {
+  <span class="comment">// Llamada API a Instantly/Smartlead/ReachInbox para pausar lead</span>
+  <span class="comment">// Cada tool tiene endpoint diferente — implementar según tu tool</span>
+  <span class="keyword">if</span> (tool === <span class="string">'instantly'</span>) {
+    <span class="keyword">const</span> apiKey = PropertiesService.getScriptProperties().getProperty(<span class="string">'INSTANTLY_API_KEY'</span>);
+    UrlFetchApp.fetch(<span class="string">'https://api.instantly.ai/api/v1/lead/update'</span>, {
+      method: <span class="string">'POST'</span>,
+      contentType: <span class="string">'application/json'</span>,
+      payload: JSON.stringify({
+        api_key: apiKey,
+        email: email,
+        status: <span class="string">'paused'</span>
+      })
+    });
+  }
+}
+
+<span class="keyword">function</span> estimateDealValue(vertical) {
+  <span class="keyword">const</span> values = {
+    <span class="string">'mayores'</span>: 1500,
+    <span class="string">'empresas'</span>: 2500,
+    <span class="string">'partnerships'</span>: 800
+  };
+  <span class="keyword">return</span> values[vertical] || 1000;
+}
+
+<span class="keyword">function</span> sendInternalNotification(data, vertical, dealId) {
+  GmailApp.sendEmail(
+    <span class="string">'hello@playingcamp.com'</span>,
+    <span class="string">'🔥 Cold reply: '</span> + data.lead_company + <span class="string">' ('</span> + vertical + <span class="string">')'</span>,
+    <span class="string">'Lead respondió positivo en campaña cold.\n\n'</span> +
+    <span class="string">'Email: '</span> + data.lead_email + <span class="string">'\n'</span> +
+    <span class="string">'Vertical: '</span> + vertical + <span class="string">'\n'</span> +
+    <span class="string">'Reply: '</span> + data.reply_body.substring(0, 300) + <span class="string">'\n\n'</span> +
+    <span class="string">'Ver deal: https://app.hubspot.com/contacts/'</span> + HUBSPOT_PORTAL_ID + <span class="string">'/deal/'</span> + dealId
+  );
+}</div>
+
+<h2 id="setup">6. Setup paso a paso (30 minutos)</h2>
+
+<div class="checklist">
+  <h4>Pre-requisitos</h4>
+  <label><input type="checkbox"> Dominio secundario comprado (ej: playingcamp.io en Namecheap, $12/año)</label>
+  <label><input type="checkbox"> Google Workspace: 3-5 cuentas en dominio secundario ($6/mes c/u)</label>
+  <label><input type="checkbox"> SPF/DKIM/DMARC configurados en cada inbox</label>
+  <label><input type="checkbox"> HubSpot Sales Hub Starter activo</label>
+  <label><input type="checkbox"> Apps Script activo en empresas@playingcamp.es (ya tienes per clasp setup)</label>
+</div>
+
+<div class="checklist">
+  <h4>Fase 1: Setup tool cold (Instantly)</h4>
+  <label><input type="checkbox">Crear cuenta Instantly $37/mes</label>
+  <label><input type="checkbox">Conectar 5 inboxes Google Workspace (carlos@, hello@, team@, partnerships@, hi@ en playingcamp.io)</label>
+  <label><input type="checkbox">Activar warm-up 14 días (no envíes cold antes)</label>
+  <label><input type="checkbox">Crear 3 campañas (mayores, empresas, partnerships)</label>
+  <label><input type="checkbox">Sequences 3 emails: día 0, día 3, día 8 (break-up)</label>
+</div>
+
+<div class="checklist">
+  <h4>Fase 2: HubSpot preparación</h4>
+  <label><input type="checkbox">Crear 3 pipelines: Mayores, Empresas, Partnerships</label>
+  <label><input type="checkbox">Crear custom property "source" + "vertical" en Contacts</label>
+  <label><input type="checkbox">Crear etapa "qualified_lead" en cada pipeline</label>
+  <label><input type="checkbox">Generar API Key HubSpot (Settings → Integrations → Private Apps)</label>
+  <label><input type="checkbox">Anotar HUBSPOT_PORTAL_ID</label>
+</div>
+
+<div class="checklist">
+  <h4>Fase 3: Apps Script deployment</h4>
+  <label><input type="checkbox">Apps Script: nuevo proyecto "PC_ColdOutreach_Sync"</label>
+  <label><input type="checkbox">Pegar código completo (sección anterior)</label>
+  <label><input type="checkbox">Properties: HUBSPOT_API_KEY, HUBSPOT_PORTAL_ID, INSTANTLY_API_KEY</label>
+  <label><input type="checkbox">Deploy → Web App → "Anyone" access, "Me" execute</label>
+  <label><input type="checkbox">Copiar URL del deploy</label>
+</div>
+
+<div class="checklist">
+  <h4>Fase 4: Conectar webhook</h4>
+  <label><input type="checkbox">Instantly: Settings → Integrations → Webhooks</label>
+  <label><input type="checkbox">Event: "reply_received"</label>
+  <label><input type="checkbox">URL: paste Apps Script web app URL</label>
+  <label><input type="checkbox">Test webhook con email dummy</label>
+  <label><input type="checkbox">Verificar Apps Script Logs (View → Logs)</label>
+  <label><input type="checkbox">Verificar contacto creado en HubSpot</label>
+</div>
+
+<div class="checklist">
+  <h4>Fase 5: Launch primera campaña</h4>
+  <label><input type="checkbox">Importar 100 leads test (mayores o partnerships)</label>
+  <label><input type="checkbox">Activar campaña con bajo volumen (20/día por inbox)</label>
+  <label><input type="checkbox">Monitorear 48h: open rate, reply rate, bounces</label>
+  <label><input type="checkbox">Verificar webhook funciona end-to-end</label>
+  <label><input type="checkbox">Scale up gradualmente: 20 → 50 → 100 emails/día/inbox</label>
+</div>
+
+<h2 id="costes">7. Costes desglosados (mensual y anual)</h2>
+
+<h3>Coste mensual stack completo</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Coste/mes</th>
+      <th>Notas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Instantly Growth (5k leads activos)</td>
+      <td>$37</td>
+      <td>O Smartlead $39 si prefieres</td>
+    </tr>
+    <tr>
+      <td>Dominio playingcamp.io</td>
+      <td>$1</td>
+      <td>$12/año dividido</td>
+    </tr>
+    <tr>
+      <td>Google Workspace × 5 inboxes</td>
+      <td>$30</td>
+      <td>$6 × 5 cuentas</td>
+    </tr>
+    <tr>
+      <td>HubSpot Sales Hub Starter</td>
+      <td>$15-50</td>
+      <td>Según asientos</td>
+    </tr>
+    <tr>
+      <td>Apps Script + GitHub</td>
+      <td>$0</td>
+      <td>Gratis ilimitado</td>
+    </tr>
+    <tr>
+      <td><strong>TOTAL</strong></td>
+      <td><span class="price-tag">$83-118/mes</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong>Anual</strong></td>
+      <td><span class="price-tag">$996-1.416</span></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Comparativa: cold desde HubSpot (BAD)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Escenario</th>
+      <th>Coste/mes</th>
+      <th>Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Intentar cold desde HubSpot Starter</td>
+      <td>$50</td>
+      <td><span class="cross">Cuenta suspendida</span> en 30-60 días</td>
+    </tr>
+    <tr>
+      <td>HubSpot Marketing Pro + 5k cold contacts</td>
+      <td>$890 + $250 overage</td>
+      <td><span class="cross">$1.140/mes</span> + dominio quemado</td>
+    </tr>
+    <tr>
+      <td>Stack separado (recomendado)</td>
+      <td>$83-118</td>
+      <td><span class="check">Funcional + escalable</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>ROI escenario realista (12 meses)</h3>
+
+<div class="success-box">
+  <strong>Asumiendo:</strong> 5.000 cold emails/mes, 2% reply rate = 100 replies/mes. 30% positive sentiment = 30 leads warm/mes. Conversion 5% a cliente = 1.5 clientes/mes.
+  <ul>
+    <li>Leads warm añadidos a HubSpot: <strong>360/año</strong></li>
+    <li>Nuevos clientes estimados: <strong>18/año</strong></li>
+    <li>Coste stack: <strong>~$1.200/año</strong></li>
+    <li>Si cada cliente vale $1.000 promedio: <strong>$18.000 revenue</strong></li>
+    <li>ROI: <strong>15x</strong></li>
+  </ul>
+</div>
+
+<h2>8. Errores comunes a evitar</h2>
+
+<ul>
+  <li><strong>NO uses dominio principal para cold</strong>. Siempre dominio secundario.</li>
+  <li><strong>NO sincronices TODOS los replies a HubSpot</strong>. Solo positive sentiment. Otherwise inflas marketing contacts.</li>
+  <li><strong>NO importes 10.000 leads de golpe</strong> en Instantly. Empieza 500-1.000 para no quemar dominio nuevo.</li>
+  <li><strong>NO saltes warm-up 14 días</strong>. Es crítico. Sin warm-up → spam folder.</li>
+  <li><strong>NO uses mismo template para los 3 verticales</strong>. Personaliza por industria.</li>
+  <li><strong>NO ignores SPF/DKIM/DMARC</strong>. Sin esto, emails van a spam.</li>
+  <li><strong>NO envíes &gt;100/día/inbox</strong> al principio. Sube gradualmente.</li>
+  <li><strong>NO uses Apps Script trigger time-based para cold</strong>. Solo webhook reactivo a replies.</li>
+</ul>
+
+<h2>9. Próximos pasos sugeridos</h2>
+
+<ol>
+  <li><strong>Esta semana:</strong> Comprar dominio playingcamp.io + setup 5 inboxes Google Workspace</li>
+  <li><strong>Semana 2:</strong> Activar Instantly, iniciar warm-up 14 días</li>
+  <li><strong>Semana 2-3:</strong> Mientras warm-up, deploy Apps Script + crear pipelines HubSpot</li>
+  <li><strong>Semana 4:</strong> Primera campaña test (100 leads partnerships)</li>
+  <li><strong>Mes 2:</strong> Scale a 3 campañas (mayores + empresas + partnerships) con 1.000 leads cada</li>
+  <li><strong>Mes 3:</strong> Optimizar based on data (subject lines, sequences, sentiment AI tuning)</li>
+</ol>
+
+</div>
+
+<footer>
+  <p>Cold Outreach + HubSpot + Apps Script · Setup Playing Camp</p>
+  <p>Junio 2026 · <a href="https://playingcamp.com">playingcamp.com</a></p>
+  <p>Doc relacionado: <a href="hubspot-vs-ghl.html">HubSpot vs GoHighLevel — Análisis completo</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HubSpot vs GoHighLevel — Análisis Playing Camp 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pc-green: #054129;
+    --pc-green-light: #0a6b42;
+    --pc-orange: #F68840;
+    --pc-orange-light: #fda06a;
+    --pc-white: #ffffff;
+    --pc-cream: #faf6f1;
+    --pc-gray: #6b6b6b;
+    --pc-dark: #1a1a1a;
+    --pc-danger: #c0392b;
+    --pc-success: #27ae60;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Comfortaa', sans-serif;
+    background: var(--pc-cream);
+    color: var(--pc-dark);
+    line-height: 1.6;
+    padding: 0;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  header {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 60px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--pc-orange);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6em;
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+  header .subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  header .meta {
+    margin-top: 24px;
+    font-size: 0.85em;
+    opacity: 0.7;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--pc-green);
+    font-size: 2em;
+    margin: 50px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--pc-orange);
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--pc-green-light);
+    font-size: 1.4em;
+    margin: 30px 0 14px;
+  }
+  h4 {
+    font-family: 'Comfortaa', sans-serif;
+    color: var(--pc-orange);
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  p { margin-bottom: 14px; }
+  .tldr {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin: 30px 0;
+    border-left: 6px solid var(--pc-orange);
+  }
+  .tldr h3 {
+    color: var(--pc-orange);
+    margin-top: 0;
+    font-size: 1.3em;
+  }
+  .tldr p, .tldr li { color: var(--pc-white); }
+  .recommendation {
+    background: linear-gradient(135deg, var(--pc-orange) 0%, var(--pc-orange-light) 100%);
+    color: var(--pc-white);
+    padding: 32px;
+    border-radius: 12px;
+    margin: 40px 0;
+    box-shadow: 0 8px 24px rgba(246, 136, 64, 0.2);
+  }
+  .recommendation h2 {
+    color: var(--pc-white);
+    border-bottom: 3px solid var(--pc-white);
+    margin-top: 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--pc-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  th {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.95em;
+  }
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.92em;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--pc-cream); }
+  .check { color: var(--pc-success); font-weight: 700; }
+  .cross { color: var(--pc-danger); font-weight: 700; }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+  @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--pc-white);
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .card.pros {
+    border-top: 4px solid var(--pc-success);
+  }
+  .card.cons {
+    border-top: 4px solid var(--pc-danger);
+  }
+  .card h4 { margin-top: 0; }
+  ul { padding-left: 24px; margin-bottom: 14px; }
+  li { margin-bottom: 8px; }
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 8px;
+  }
+  .badge.win { background: var(--pc-success); color: white; }
+  .badge.lose { background: var(--pc-danger); color: white; }
+  .badge.warn { background: var(--pc-orange); color: white; }
+  .scenario {
+    background: var(--pc-white);
+    padding: 24px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid var(--pc-green);
+  }
+  .scenario-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--pc-green);
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .scenario-cost {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: var(--pc-cream);
+    border-radius: 6px;
+    margin: 8px 0;
+    font-size: 0.9em;
+  }
+  .scenario-cost .total {
+    font-weight: 700;
+    color: var(--pc-orange);
+  }
+  .workaround {
+    background: #f0f7f3;
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid var(--pc-green-light);
+  }
+  .workaround h4 {
+    color: var(--pc-green);
+    margin-top: 0;
+  }
+  .alert {
+    background: #fff5f0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid var(--pc-danger);
+    font-size: 0.92em;
+  }
+  .alert strong { color: var(--pc-danger); }
+  .code {
+    background: var(--pc-dark);
+    color: #a8e6cf;
+    padding: 16px 20px;
+    border-radius: 6px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.85em;
+    overflow-x: auto;
+    margin: 12px 0;
+  }
+  .price-tag {
+    font-family: 'Playfair Display', serif;
+    color: var(--pc-orange);
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+  .vs-banner {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    color: var(--pc-orange);
+    margin: 30px 0;
+    font-weight: 900;
+  }
+  footer {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 40px 24px;
+    text-align: center;
+    margin-top: 80px;
+  }
+  footer a { color: var(--pc-orange); }
+  .nav {
+    background: var(--pc-white);
+    padding: 16px 24px;
+    border-bottom: 2px solid var(--pc-orange);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .nav a {
+    color: var(--pc-green);
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+  .nav a:hover { color: var(--pc-orange); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>HubSpot vs GoHighLevel</h1>
+  <p class="subtitle">Análisis profundo con costes reales, pegas, workarounds y recomendación para Playing Camp (3 verticales: mayores, empresas, partnerships)</p>
+  <p class="meta">Actualizado junio 2026 · Datos verificados con fuentes en pie</p>
+</header>
+
+<nav class="nav">
+  <ul>
+    <li><a href="#tldr">TL;DR</a></li>
+    <li><a href="#precios">Precios reales</a></li>
+    <li><a href="#pros-cons">Pros/Cons</a></li>
+    <li><a href="#escalado">Escalado coste</a></li>
+    <li><a href="#workarounds">Workarounds</a></li>
+    <li><a href="#escenarios">Escenarios PC</a></li>
+    <li><a href="#recomendacion">Recomendación</a></li>
+    <li><a href="#fuentes">Fuentes</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<div class="tldr" id="tldr">
+  <h3>TL;DR — Veredicto rápido</h3>
+  <p><strong>HubSpot Free/Starter + stack code-first (Apps Script + GitHub + APIs) gana a GHL para Playing Camp.</strong></p>
+  <ul>
+    <li>Coste arranque: <strong>$0–50/mes</strong> (HubSpot Free o Starter) vs $97/mes (GHL Starter)</li>
+    <li>Pega real HubSpot: salto a Marketing Pro = <strong>$890/mes + $3.000 onboarding obligatorio</strong></li>
+    <li>Pega real GHL: <strong>30% caída deliverability email</strong>, interfaz lenta, soporte clunky</li>
+    <li>Tu ventaja: ya tienes <strong>Apps Script + clasp + GitHub + Apify</strong> → workarounds gratis cubren 80% de lo que pagarías a HubSpot Pro</li>
+    <li>Plan recomendado: <strong>HubSpot Sales Hub Starter ($15-50/mes) + automatizaciones propias = ~$50-100/mes total</strong></li>
+  </ul>
+</div>
+
+<h2 id="precios">1. Precios reales 2026 (no marketing, datos verificados)</h2>
+
+<h3>HubSpot — desglose por Hub y tier</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plan</th>
+      <th>Coste base</th>
+      <th>Contactos incluidos</th>
+      <th>Asientos</th>
+      <th>Onboarding obligatorio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Free CRM</strong></td>
+      <td>$0</td>
+      <td>1.000 marketing</td>
+      <td>Usuarios ilimitados</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><strong>Sales/Marketing Starter</strong></td>
+      <td>$15-20/asiento/mes</td>
+      <td>1.000 marketing</td>
+      <td>1 mínimo</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><strong>Marketing Professional</strong></td>
+      <td><span class="price-tag">$890/mes</span></td>
+      <td>2.000 marketing</td>
+      <td>3 incluidos</td>
+      <td><span class="cross">$3.000</span></td>
+    </tr>
+    <tr>
+      <td><strong>Marketing Enterprise</strong></td>
+      <td><span class="price-tag">$3.600/mes</span></td>
+      <td>10.000 marketing</td>
+      <td>5 incluidos</td>
+      <td><span class="cross">$7.000</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <strong>⚠️ Trampa contact-tier:</strong> Si pasas de 2.000 contactos en Marketing Pro → salto automático a tier 5.000 = <strong>+$250/mes inmediato</strong>. Te facturan al instante, no pueden esperar al ciclo. Caso real: empresa con 10.000 contactos paga $890 base + $360 overage = $1.250/mes.
+</div>
+
+<div class="alert">
+  <strong>⚠️ Lock-in anual:</strong> Pro y Enterprise requieren compromiso 12 meses. Cancelar antes = pagas el resto del año igual. Solo Starter es mensual real.
+</div>
+
+<h3>GoHighLevel — desglose por plan</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plan</th>
+      <th>Coste mensual</th>
+      <th>Coste anual</th>
+      <th>Sub-cuentas</th>
+      <th>Caso de uso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Starter</strong></td>
+      <td>$97/mes</td>
+      <td>$81/mes</td>
+      <td>3</td>
+      <td>1 negocio/marca</td>
+    </tr>
+    <tr>
+      <td><strong>Unlimited</strong></td>
+      <td>$297/mes</td>
+      <td>$248/mes</td>
+      <td>Ilimitadas</td>
+      <td>Agencia multi-cliente</td>
+    </tr>
+    <tr>
+      <td><strong>SaaS Pro</strong></td>
+      <td>$497/mes</td>
+      <td>$414/mes</td>
+      <td>Ilimitadas + white-label</td>
+      <td>Revende como SaaS</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Costes ocultos GHL (uso real)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Coste</th>
+      <th>Notas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>WhatsApp</td>
+      <td>$10/mes por sub-cuenta + uso</td>
+      <td>Conversaciones varían por país</td>
+    </tr>
+    <tr>
+      <td>SMS</td>
+      <td>$0.0079/segmento</td>
+      <td>Apilan rápido en campañas</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>$0.675 / 1.000 envíos</td>
+      <td>Newsletter de 5.000 = $3.40</td>
+    </tr>
+    <tr>
+      <td>Llamadas + AI</td>
+      <td>$20-150/mes según uso</td>
+      <td>AI agents premium aparte</td>
+    </tr>
+    <tr>
+      <td><strong>Total realista agencia</strong></td>
+      <td><span class="price-tag">$400-450/mes</span></td>
+      <td>Sobre base de $297 (Unlimited)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert">
+  <strong>⚠️ GHL spend 30-50% sobre base:</strong> Foros confirman que el coste real corre 30-50% por encima del precio base una vez sumas metered costs, premium actions y add-ons.
+</div>
+
+<h2 id="pros-cons">2. Pros y contras detallados</h2>
+
+<div class="vs-banner">VS</div>
+
+<div class="grid-2">
+  <div class="card pros">
+    <h4>✓ HubSpot — Pros</h4>
+    <ul>
+      <li><strong>Free tier real</strong>: 1.000 contactos, usuarios ilimitados, sin caducidad</li>
+      <li><strong>API robusta</strong>: REST + webhooks bien documentada, fácil integrar Apps Script</li>
+      <li><strong>Integración LinkedIn</strong>: Sales Hub conecta directo (no Zapier tax)</li>
+      <li><strong>Inbox multi-bandeja</strong>: gestiona mayores@, empresas@, partnerships@ todas en Starter</li>
+      <li><strong>Pipelines ilimitados</strong> en cualquier plan (incl. Free)</li>
+      <li><strong>Custom Objects</strong> (Pro+) ideal para facilitadores futuro</li>
+      <li><strong>Marketplace 1.500+ integraciones</strong> nativas</li>
+      <li><strong>Stripe Billing</strong> nativo para facturas</li>
+      <li><strong>Calidad email deliverability</strong> excelente</li>
+      <li><strong>Comunidad/docs</strong> enormes, fácil aprendizaje</li>
+    </ul>
+  </div>
+  <div class="card cons">
+    <h4>✗ HubSpot — Contras</h4>
+    <ul>
+      <li><strong>Cliff brutal Starter→Pro</strong>: $50 → $890/mes (17x)</li>
+      <li><strong>Onboarding obligatorio</strong> $3.000 en Pro, $7.000 Enterprise</li>
+      <li><strong>Marketing contacts</strong> facturan por contacto activo (overages instantáneos)</li>
+      <li><strong>Contratos anuales</strong> Pro/Enterprise (no escapas mid-year)</li>
+      <li><strong>Landing pages</strong> capadas en Starter (solo formularios básicos)</li>
+      <li><strong>Workflows avanzados</strong> = Pro ($890) — Starter solo "simple automation"</li>
+      <li><strong>WhatsApp Chat Hub</strong> add-on $25/mes</li>
+      <li><strong>AI credits</strong> limitados por plan, se consumen rápido</li>
+      <li><strong>Reportes custom</strong> = Pro</li>
+      <li><strong>Lead scoring</strong> = Pro</li>
+    </ul>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card pros">
+    <h4>✓ GoHighLevel — Pros</h4>
+    <ul>
+      <li><strong>Flat-fee predecible</strong>: $97 incluye casi todo</li>
+      <li><strong>Contactos ilimitados</strong> en todos los planes</li>
+      <li><strong>Usuarios ilimitados</strong> en todos los planes</li>
+      <li><strong>WhatsApp nativo</strong> (sin add-on)</li>
+      <li><strong>Landing pages + funnels</strong> drag-drop incluidos</li>
+      <li><strong>SMS + llamadas</strong> nativos (Twilio integrado)</li>
+      <li><strong>Calendario</strong> propio (no necesitas Calendly)</li>
+      <li><strong>Reputation management</strong> (reviews automáticas)</li>
+      <li><strong>Workflows visuales</strong> avanzados en plan base</li>
+      <li><strong>White-label</strong> en SaaS Pro ($497) si quisieras revender</li>
+    </ul>
+  </div>
+  <div class="card cons">
+    <h4>✗ GoHighLevel — Contras</h4>
+    <ul>
+      <li><strong>Email deliverability mala</strong>: caídas de 30%+ en bandeja vs tools dedicados</li>
+      <li><strong>Interfaz lenta/clunky</strong>, curva aprendizaje alta</li>
+      <li><strong>Constantes bugs/breakdowns</strong> reportados en foros</li>
+      <li><strong>API limitada</strong> vs HubSpot — integraciones custom más difíciles</li>
+      <li><strong>LinkedIn integración débil</strong>: solo workaround vía Zapier</li>
+      <li><strong>Soporte mediocre</strong>: tickets lentos, comunidad pequeña</li>
+      <li><strong>Vendor lock-in</strong>: exportar data complicado</li>
+      <li><strong>Costes uso impredecibles</strong> (SMS, AI, WhatsApp)</li>
+      <li><strong>Marketing automation</strong> menos sofisticada</li>
+      <li><strong>Mejor para agencias</strong> que para B2B propio (tu caso)</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="escalado">3. Escalado de coste — cuándo duele cada uno</h2>
+
+<h3>HubSpot — la curva</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Etapa Playing Camp</th>
+      <th>Plan necesario</th>
+      <th>Coste/mes</th>
+      <th>Trigger upgrade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hoy (3 verticales, &lt;1.000 contactos)</td>
+      <td>Free CRM o Starter $15-50</td>
+      <td>$0-50</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>+1.000 contactos marketing</td>
+      <td>Starter + overage</td>
+      <td>$70-100</td>
+      <td>1.001 contactos</td>
+    </tr>
+    <tr>
+      <td>Necesitas landing pages avanzadas</td>
+      <td><strong>Pro</strong> (cliff)</td>
+      <td><span class="price-tag">$890 + $3.000 onboarding</span></td>
+      <td>A/B testing, smart content</td>
+    </tr>
+    <tr>
+      <td>5.000+ contactos en Pro</td>
+      <td>Pro + tier upgrade</td>
+      <td>$1.140/mes</td>
+      <td>2.001 contactos en Pro</td>
+    </tr>
+    <tr>
+      <td>10.000 contactos</td>
+      <td>Pro + overage</td>
+      <td>$1.250/mes</td>
+      <td>5.001 contactos</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>GHL — la curva</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Etapa Playing Camp</th>
+      <th>Plan necesario</th>
+      <th>Coste/mes</th>
+      <th>Trigger upgrade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hoy (1 marca, 3 verticales)</td>
+      <td>Starter</td>
+      <td>$97-150 (con uso)</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Quieres facilitadores como sub-cuentas</td>
+      <td><strong>Unlimited</strong></td>
+      <td>$297-450</td>
+      <td>4+ sub-cuentas</td>
+    </tr>
+    <tr>
+      <td>Newsletter masivo (5.000+ leads)</td>
+      <td>Unlimited + email usage</td>
+      <td>$310-470</td>
+      <td>Email volume alto</td>
+    </tr>
+    <tr>
+      <td>Revender plataforma a facilitadores</td>
+      <td>SaaS Pro</td>
+      <td>$497-650</td>
+      <td>Model agencia/SaaS</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Comparativa visual — gasto a 24 meses</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Año 1</th>
+      <th>HubSpot (Free/Starter + stack propio)</th>
+      <th>GHL Starter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Meses 1-6 (arranque)</td>
+      <td><span class="check">$0-50/mes = $0-300</span></td>
+      <td>$97/mes = $582</td>
+    </tr>
+    <tr>
+      <td>Meses 7-12 (crecimiento)</td>
+      <td>$50-100/mes = $300-600</td>
+      <td>$150/mes (con uso) = $900</td>
+    </tr>
+    <tr>
+      <td><strong>Total año 1</strong></td>
+      <td><span class="price-tag">$300-900</span></td>
+      <td><span class="price-tag">$1.482</span></td>
+    </tr>
+    <tr>
+      <td><strong>Año 2 (escala)</strong></td>
+      <td>$100-200/mes = $1.200-2.400</td>
+      <td>$300-450/mes = $3.600-5.400</td>
+    </tr>
+    <tr>
+      <td><strong>Total 24 meses</strong></td>
+      <td><span class="price-tag">$1.500-3.300</span></td>
+      <td><span class="price-tag">$5.082-6.882</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Diferencia: ~$3.000-3.500 de ahorro en 24 meses</strong> usando HubSpot + workarounds vs GHL.</p>
+
+<h2 id="workarounds">4. Workarounds para ahorrar dinero según escales</h2>
+
+<p>La gran ventaja para Playing Camp: ya tienes el stack code-first. Cada workaround sustituye una feature paga de HubSpot Pro.</p>
+
+<div class="workaround">
+  <h4>Workaround #1: Landing pages → GitHub Pages + Cloudflare</h4>
+  <p><strong>HubSpot Pro feature:</strong> Landing pages con A/B testing ($890/mes)</p>
+  <p><strong>Reemplazo:</strong> GitHub Pages (gratis) + HubSpot form embed</p>
+  <ul>
+    <li>HTML/CSS custom, control 100% diseño</li>
+    <li>Videos YouTube/Vimeo embed sin límite</li>
+    <li>HubSpot form vía script tag</li>
+    <li>A/B testing: 2 branches en Git con redirect</li>
+    <li>SEO control total</li>
+  </ul>
+  <p><strong>Ahorro: ~$840/mes</strong></p>
+</div>
+
+<div class="workaround">
+  <h4>Workaround #2: Workflows avanzados → Apps Script</h4>
+  <p><strong>HubSpot Pro feature:</strong> Workflows con custom code blocks ($890/mes)</p>
+  <p><strong>Reemplazo:</strong> Apps Script + HubSpot API (gratis)</p>
+  <p>Tu setup actual ya tiene 6 scripts en producción. Patrón:</p>
+  <div class="code">// Webhook receives event
+function doPost(e) {
+  const data = JSON.parse(e.postData.contents);
+
+  // Custom logic JSON-style
+  const contact = HubSpot.findContact(data.email);
+  if (contact.tag === 'partnerships') {
+    HubSpot.moveDealStage(contact.dealId, 'qualified');
+    Gmail.sendTemplate('festival-followup', contact);
+  }
+}</div>
+  <p><strong>Ahorro: ~$840/mes</strong></p>
+</div>
+
+<div class="workaround">
+  <h4>Workaround #3: Newsletter → MailerLite o Brevo</h4>
+  <p><strong>HubSpot Pro feature:</strong> Email marketing con segmentación avanzada</p>
+  <p><strong>Reemplazo:</strong></p>
+  <ul>
+    <li><strong>MailerLite</strong>: gratis hasta 1.000 contactos, $9/mes hasta 2.500</li>
+    <li><strong>Brevo (ex-Sendinblue)</strong>: gratis 300 emails/día, $9/mes hasta 20k/mes</li>
+    <li>Sync con HubSpot vía Zapier ($0-20/mes)</li>
+  </ul>
+  <p><strong>Ahorro: $830-880/mes</strong></p>
+</div>
+
+<div class="workaround">
+  <h4>Workaround #4: Social media → Buffer/Metricool</h4>
+  <p><strong>HubSpot Pro feature:</strong> Social Hub publicación + monitoring</p>
+  <p><strong>Reemplazo:</strong> Buffer ($15) o Metricool ($19)</p>
+  <ul>
+    <li>Publica en LinkedIn, IG, FB, TikTok</li>
+    <li>Mejor analytics que HubSpot</li>
+    <li>Engagement → Apps Script → HubSpot tag</li>
+  </ul>
+  <p><strong>Ahorro: ~$870/mes</strong></p>
+</div>
+
+<div class="workaround">
+  <h4>Workaround #5: Lead scoring → Apps Script + custom fields</h4>
+  <p><strong>HubSpot Pro feature:</strong> Predictive lead scoring</p>
+  <p><strong>Reemplazo:</strong> Custom property en HubSpot + Apps Script calcula score nightly</p>
+  <div class="code">// Daily cron via Apps Script
+function recalcLeadScores() {
+  const contacts = HubSpot.getContacts({active: true});
+  contacts.forEach(c => {
+    const score =
+      (c.emailOpens * 5) +
+      (c.formSubmissions * 20) +
+      (c.linkedInVisits * 10);
+    HubSpot.updateContact(c.id, {lead_score: score});
+  });
+}</div>
+  <p><strong>Ahorro: ~$840/mes</strong></p>
+</div>
+
+<div class="workaround">
+  <h4>Workaround #6: AI agentes call summary → Fireflies + Apps Script</h4>
+  <p><strong>HubSpot Pro feature:</strong> AI call summarization (Sales Hub Pro)</p>
+  <p><strong>Reemplazo:</strong> Fireflies.ai ($10) → webhook → Apps Script → HubSpot note</p>
+  <p><strong>Ahorro: ~$80-200/mes</strong></p>
+</div>
+
+<div class="workaround">
+  <h4>Workaround #7: Custom objects facilitadores → Companies object</h4>
+  <p><strong>HubSpot Pro feature:</strong> Custom Objects (Facilitadores schema dedicado)</p>
+  <p><strong>Reemplazo:</strong> Usa Companies object con custom properties</p>
+  <ul>
+    <li>Tag: "facilitador"</li>
+    <li>Custom props: especialidad, tarifa, zona, idiomas</li>
+    <li>Asocia Deals (talleres) → Companies (facilitadores)</li>
+    <li>Apps Script: matching automático</li>
+  </ul>
+  <p><strong>Ahorro: ~$840/mes</strong></p>
+</div>
+
+<div class="workaround">
+  <h4>Workaround #8: Reportes custom → Looker Studio + HubSpot connector</h4>
+  <p><strong>HubSpot Pro feature:</strong> Custom reports dashboards (100 reportes)</p>
+  <p><strong>Reemplazo:</strong> Looker Studio (gratis) + HubSpot API</p>
+  <ul>
+    <li>Conector nativo HubSpot → Looker</li>
+    <li>Dashboards ilimitados</li>
+    <li>Comparte vía link</li>
+  </ul>
+  <p><strong>Ahorro: ~$840/mes</strong></p>
+</div>
+
+<div class="workaround">
+  <h4>Workaround #9: n8n para orquestación visual</h4>
+  <p><strong>Cuándo usar n8n:</strong> Solo si necesitas workflows visuales no-code (equipo non-tech) o orquestación 10+ pasos</p>
+  <ul>
+    <li>n8n self-hosted: $0 (VPS $5/mes)</li>
+    <li>n8n cloud: $20-50/mes</li>
+    <li>Webhook → n8n → HubSpot API + Apollo + Twilio + Calendly</li>
+  </ul>
+  <p><strong>Para tu caso: Apps Script gana</strong>. n8n añade complejidad sin valor extra.</p>
+</div>
+
+<h2 id="escenarios">5. Escenarios reales Playing Camp</h2>
+
+<div class="scenario">
+  <div class="scenario-title">Escenario A — Arranque (mes 0-6)</div>
+  <p><strong>Necesidad:</strong> 3 pipelines (mayores/empresas/partnerships), forms básicos, secuencias email</p>
+  <p><strong>Stack:</strong></p>
+  <div class="scenario-cost"><span>HubSpot Free CRM</span><span>$0</span></div>
+  <div class="scenario-cost"><span>HubSpot Sales Hub Starter (1 user)</span><span>$15/mes</span></div>
+  <div class="scenario-cost"><span>GitHub Pages (landings)</span><span>$0</span></div>
+  <div class="scenario-cost"><span>Apps Script (workflows)</span><span>$0</span></div>
+  <div class="scenario-cost"><span>MailerLite (newsletter free tier)</span><span>$0</span></div>
+  <div class="scenario-cost total"><span><strong>TOTAL</strong></span><span><strong>$15/mes</strong></span></div>
+</div>
+
+<div class="scenario">
+  <div class="scenario-title">Escenario B — Crecimiento (mes 6-18)</div>
+  <p><strong>Necesidad:</strong> Webinars, llamadas Twilio, Apollo enrichment, calendario reservas, AI call summary</p>
+  <p><strong>Stack:</strong></p>
+  <div class="scenario-cost"><span>HubSpot Sales Hub Starter</span><span>$50/mes</span></div>
+  <div class="scenario-cost"><span>Calendly (scheduling)</span><span>$10/mes</span></div>
+  <div class="scenario-cost"><span>Apollo (lead enrichment, plan básico)</span><span>$49/mes</span></div>
+  <div class="scenario-cost"><span>Fireflies.ai (call AI)</span><span>$10/mes</span></div>
+  <div class="scenario-cost"><span>Twilio (uso, ~500 min)</span><span>$25/mes</span></div>
+  <div class="scenario-cost"><span>MailerLite (2.500 contactos)</span><span>$9/mes</span></div>
+  <div class="scenario-cost"><span>Buffer (social media)</span><span>$15/mes</span></div>
+  <div class="scenario-cost"><span>Apps Script + GitHub</span><span>$0</span></div>
+  <div class="scenario-cost total"><span><strong>TOTAL</strong></span><span><strong>$168/mes</strong></span></div>
+  <p><em>Comparado con GHL Unlimited ($297-450) + Apollo + Calendly = $370-520/mes. <strong>Ahorras ~$200-350/mes</strong>.</em></p>
+</div>
+
+<div class="scenario">
+  <div class="scenario-title">Escenario C — Escala con facilitadores (mes 18+)</div>
+  <p><strong>Necesidad:</strong> 20+ facilitadores, pipeline talleres, asignación automática, marketplace público</p>
+  <p><strong>Stack:</strong></p>
+  <div class="scenario-cost"><span>HubSpot Sales Hub Starter (2 users)</span><span>$100/mes</span></div>
+  <div class="scenario-cost"><span>GitHub marketplace facilitadores</span><span>$0</span></div>
+  <div class="scenario-cost"><span>Apps Script matching engine</span><span>$0</span></div>
+  <div class="scenario-cost"><span>Calendly Teams (facilitadores)</span><span>$16/mes</span></div>
+  <div class="scenario-cost"><span>Apollo + Fireflies + Buffer (igual)</span><span>$74/mes</span></div>
+  <div class="scenario-cost"><span>MailerLite (5.000 contactos)</span><span>$18/mes</span></div>
+  <div class="scenario-cost"><span>Looker Studio (reportes)</span><span>$0</span></div>
+  <div class="scenario-cost total"><span><strong>TOTAL</strong></span><span><strong>$208/mes</strong></span></div>
+  <p><em>HubSpot Marketing Pro equivalente sería <strong>$890 + $3.000 onboarding</strong> año 1.</em></p>
+</div>
+
+<h2 id="recomendacion">6. Recomendación final Playing Camp</h2>
+
+<div class="recommendation">
+  <h2>HubSpot Sales Hub Starter + Stack code-first</h2>
+  <p><strong>Razón:</strong> Combina lo mejor de ambos mundos:</p>
+  <ul>
+    <li>HubSpot CRM/email/sync robusto y battle-tested</li>
+    <li>Tu Apps Script setup cubre el 80% de lo que pagarías en Pro</li>
+    <li>GitHub Pages reemplaza landing pages caras</li>
+    <li>Coste predecible (sin sustos contact-tier)</li>
+    <li>Escapas del cliff $50→$890/mes</li>
+    <li>LinkedIn integración nativa (vs GHL workaround)</li>
+    <li>Deliverability email superior a GHL</li>
+  </ul>
+  <p><strong>Plan acción próximos 30 días:</strong></p>
+  <ol>
+    <li>Crear cuenta HubSpot Free CRM con empresas@playingcamp.es</li>
+    <li>Conectar Gmail (mayores@, empresas@, partnerships@)</li>
+    <li>Configurar 3 pipelines (1 por vertical)</li>
+    <li>Migrar Apps Scripts existentes → webhook HubSpot</li>
+    <li>Crear primera landing GitHub Pages + form HubSpot embedded</li>
+    <li>Decidir entre Free (1.000 contactos) o Starter ($15) según volumen actual</li>
+  </ol>
+</div>
+
+<h3>Cuándo SÍ considerar GHL</h3>
+<ul>
+  <li>Si pivotas a <strong>modelo agencia</strong> revendiendo a facilitadores como sub-cuentas (SaaS Pro)</li>
+  <li>Si <strong>SMS/WhatsApp marketing</strong> se vuelve core (no email)</li>
+  <li>Si <strong>no quieres tocar código</strong> (pero tú sí quieres → no aplica)</li>
+</ul>
+
+<h3>Cuándo upgrade a HubSpot Marketing Pro</h3>
+<p>Solo cuando todos estos puntos se cumplan:</p>
+<ul>
+  <li>Tienes 3.000+ contactos activos en marketing</li>
+  <li>Necesitas A/B testing nativo (no GitHub branches)</li>
+  <li>Equipo 3+ personas que necesitan UI no-code</li>
+  <li>Facturas mensuales &gt;$5.000 que justifican $890/mes</li>
+  <li>Tiempo de tu equipo &gt; tiempo programación workarounds</li>
+</ul>
+
+<h2 id="fuentes">Fuentes</h2>
+<ul>
+  <li><a href="https://www.engagebay.com/blog/hubspot-pricing/">HubSpot Pricing 2026: Updated Plan Costs, Contact-Tier — EngageBay</a></li>
+  <li><a href="https://encharge.io/hubspot-pricing/">HubSpot Pricing, Explained (May 2026 Update) — Encharge</a></li>
+  <li><a href="https://www.resonatehq.com/hubspot-pricing">HubSpot Pricing in 2026 — All Hubs, Tiers & Hidden Costs — Resonate</a></li>
+  <li><a href="https://www.emailtooltester.com/en/crm/hubspot-review/pricing/">HubSpot Pricing 2026: How to Avoid Paying Too Much — EmailToolTester</a></li>
+  <li><a href="https://www.gohighlevel.com/pricing">GoHighLevel Pricing oficial</a></li>
+  <li><a href="https://www.highlevel.ai/pricing-explained">GoHighLevel Pricing 2026: $97-$497 + Hidden Costs Exposed</a></li>
+  <li><a href="https://getautomized.com/gohighlevel-pricing/">GoHighLevel Pricing 2026: Every Plan & Add-On — Automize</a></li>
+  <li><a href="https://integrateiq.com/comparisons/hubspot-vs-gohighlevel/">HubSpot vs GoHighLevel: $0 to $1M — Which Scales Better?</a></li>
+  <li><a href="https://bestcrmreviews.com/gohighlevel-vs-hubspot">GoHighLevel vs HubSpot (2026): Flat vs Per-Seat — BestCRMReviews</a></li>
+  <li><a href="https://use-apify.com/blog/hubspot-alternatives-2026">7 Open-Source HubSpot Alternatives You Can Self-Host (2026)</a></li>
+  <li><a href="https://noboundsdigital.com/versus/hubspot-starter-vs-hubspot-pro">HubSpot Starter Vs HubSpot Pro (2026 Guide)</a></li>
+</ul>
+
+</div>
+
+<footer>
+  <p>Análisis preparado para <strong>Playing Camp</strong> · Junio 2026</p>
+  <p>Documento generado con datos verificados en fuentes públicas · <a href="https://playingcamp.com">playingcamp.com</a></p>
+</footer>
+
+</body>
+</html>

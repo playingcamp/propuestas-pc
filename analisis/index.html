@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Análisis Stack Tools — Playing Camp</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Comfortaa:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pc-green: #054129;
+    --pc-orange: #F68840;
+    --pc-cream: #faf6f1;
+    --pc-white: #ffffff;
+    --pc-dark: #1a1a1a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Comfortaa', sans-serif;
+    background: var(--pc-cream);
+    color: var(--pc-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  header {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 80px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--pc-orange);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+  header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 60px 24px; }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--pc-green);
+    font-size: 2em;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--pc-orange);
+  }
+  .doc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 30px 0;
+  }
+  @media (max-width: 768px) { .doc-grid { grid-template-columns: 1fr; } }
+  .doc-card {
+    background: var(--pc-white);
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: var(--pc-dark);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 4px solid var(--pc-orange);
+    display: block;
+  }
+  .doc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .doc-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--pc-green);
+    font-size: 1.5em;
+    margin-bottom: 12px;
+  }
+  .doc-card .desc {
+    color: #6b6b6b;
+    font-size: 0.95em;
+    margin-bottom: 16px;
+  }
+  .doc-card .meta {
+    font-size: 0.8em;
+    color: var(--pc-orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .doc-card .cta {
+    margin-top: 20px;
+    color: var(--pc-orange);
+    font-weight: 700;
+  }
+  footer {
+    background: var(--pc-green);
+    color: var(--pc-white);
+    padding: 30px 24px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  footer a { color: var(--pc-orange); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Análisis Stack Tools</h1>
+  <p>Documentación interna Playing Camp · CRM, automatización, cold outreach, integraciones</p>
+</header>
+
+<div class="container">
+  <h2>Documentos disponibles</h2>
+
+  <div class="doc-grid">
+
+    <a href="hubspot-vs-ghl.html" class="doc-card">
+      <div class="meta">Análisis comparativa</div>
+      <h3>HubSpot vs GoHighLevel</h3>
+      <p class="desc">Análisis profundo con costes reales 2026, pegas, workarounds y recomendación para Playing Camp (3 verticales: mayores, empresas, partnerships).</p>
+      <ul style="margin-left: 20px; font-size: 0.9em;">
+        <li>Precios reales (Free → Enterprise)</li>
+        <li>Trampas contact-tier + onboarding $3k</li>
+        <li>9 workarounds para ahorrar dinero</li>
+        <li>3 escenarios Playing Camp</li>
+        <li>11 fuentes verificadas</li>
+      </ul>
+      <div class="cta">Leer análisis →</div>
+    </a>
+
+    <a href="reachinbox-hubspot-appscript.html" class="doc-card">
+      <div class="meta">Setup técnico</div>
+      <h3>Cold Outreach + HubSpot + Apps Script</h3>
+      <p class="desc">Cómo conectar ReachInbox/Instantly/Smartlead con HubSpot vía Apps Script. Protege dominio principal + sincroniza solo replies positivos.</p>
+      <ul style="margin-left: 20px; font-size: 0.9em;">
+        <li>Por qué NO hacer cold desde HubSpot</li>
+        <li>Stack correcto (dominio secundario + sync)</li>
+        <li>Código Apps Script completo</li>
+        <li>Setup paso a paso 30 min</li>
+        <li>ROI esperado 15x</li>
+      </ul>
+      <div class="cta">Ver setup →</div>
+    </a>
+
+  </div>
+
+  <h2 style="margin-top: 60px;">Decisiones clave (resumen)</h2>
+  <div style="background: var(--pc-white); padding: 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.05);">
+    <p><strong style="color: var(--pc-orange);">CRM:</strong> HubSpot Sales Hub Starter ($15-50/mes) + stack code-first</p>
+    <p><strong style="color: var(--pc-orange);">Landing pages:</strong> GitHub Pages (gratis) + HubSpot form embed</p>
+    <p><strong style="color: var(--pc-orange);">Cold outreach:</strong> Instantly $37/mes en dominio secundario + Apps Script sync a HubSpot</p>
+    <p><strong style="color: var(--pc-orange);">Newsletter:</strong> MailerLite gratis hasta 1.000 contactos</p>
+    <p><strong style="color: var(--pc-orange);">Calendario:</strong> Calendly $10/mes</p>
+    <p><strong style="color: var(--pc-orange);">Call AI:</strong> Fireflies.ai $10/mes</p>
+    <p><strong style="color: var(--pc-orange);">Total mes 0-6:</strong> ~$15-50/mes</p>
+    <p><strong style="color: var(--pc-orange);">Total mes 12+:</strong> ~$150-200/mes con stack completo</p>
+  </div>
+</div>
+
+<footer>
+  <p>Playing Camp · Documentación interna · Junio 2026</p>
+  <p><a href="https://playingcamp.com">playingcamp.com</a></p>
+</footer>
+
+</body>
+</html>

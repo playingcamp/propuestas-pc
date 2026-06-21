@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Propuesta · Playing Camp × AGC · El Equipo Invisible</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Comfortaa:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde:#054129;
+    --verde-soft:#0a5a37;
+    --naranja:#F68840;
+    --blanco:#FFFFFF;
+    --crema:#FBF7F1;
+    --tinta:#1a1a1a;
+    --gris:#5a5a5a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--crema);color:var(--tinta);font-family:'Comfortaa',sans-serif;line-height:1.55;font-size:16px}
+  .wrap{max-width:880px;margin:0 auto;padding:48px 40px 80px}
+  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;line-height:1.15;letter-spacing:-.01em}
+  h1{font-size:54px;color:var(--verde);margin-bottom:6px}
+  h2{font-size:30px;color:var(--verde);margin:48px 0 14px;border-bottom:2px solid var(--naranja);padding-bottom:8px;display:inline-block}
+  h3{font-size:20px;color:var(--verde-soft);margin:24px 0 8px;font-weight:500}
+  p{margin-bottom:12px;color:var(--tinta)}
+  strong{color:var(--verde)}
+  em{color:var(--naranja);font-style:normal;font-weight:500}
+  .hero{background:var(--verde);color:var(--blanco);padding:56px 48px;border-radius:18px;margin-bottom:32px;position:relative;overflow:hidden}
+  .hero h1{color:var(--blanco)}
+  .hero .sub{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#f9d8c0;margin-top:14px;max-width:560px}
+  .hero .meta{margin-top:32px;font-size:13px;color:#cfe3d6;letter-spacing:.04em;text-transform:uppercase}
+  .badge{display:inline-block;background:var(--naranja);color:var(--verde);font-weight:700;padding:6px 14px;border-radius:99px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
+  .lead{font-size:18px;color:var(--gris);max-width:680px;margin-bottom:20px}
+  .pain{background:var(--blanco);border-left:4px solid var(--naranja);padding:22px 26px;border-radius:6px;margin:18px 0}
+  .pain p{margin-bottom:6px}
+  ul.clean{list-style:none;padding:0}
+  ul.clean li{padding:10px 0 10px 28px;position:relative;border-bottom:1px dashed #e3dccf}
+  ul.clean li:last-child{border-bottom:none}
+  ul.clean li:before{content:"●";color:var(--naranja);position:absolute;left:8px;top:10px}
+  .timeline{counter-reset:step;margin-top:18px}
+  .timeline .step{background:var(--blanco);border-radius:10px;padding:18px 22px 18px 70px;margin-bottom:10px;position:relative;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+  .timeline .step:before{counter-increment:step;content:counter(step);position:absolute;left:18px;top:18px;width:36px;height:36px;border-radius:50%;background:var(--verde);color:var(--blanco);font-family:'Playfair Display',serif;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:18px}
+  .timeline .dur{font-size:12px;color:var(--naranja);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+  .timeline h4{font-family:'Playfair Display',serif;font-size:18px;color:var(--verde);margin-bottom:4px}
+  .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .opt{background:var(--blanco);border-radius:14px;padding:24px 22px;border:2px solid transparent;display:flex;flex-direction:column}
+  .opt.reco{border-color:var(--naranja);box-shadow:0 8px 24px rgba(246,136,64,.15);position:relative}
+  .opt.reco:before{content:"Recomendada";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--naranja);color:var(--verde);font-weight:700;font-size:11px;padding:4px 12px;border-radius:99px;letter-spacing:.06em;text-transform:uppercase}
+  .opt h3{margin-top:0;color:var(--verde)}
+  .opt .price{font-family:'Playfair Display',serif;font-size:36px;color:var(--verde);font-weight:700;margin:8px 0 4px}
+  .opt .price small{font-size:13px;color:var(--gris);font-weight:400;font-family:'Comfortaa',sans-serif}
+  .opt ul{list-style:none;font-size:14px;color:var(--tinta);margin-top:12px;flex:1}
+  .opt ul li{padding:5px 0 5px 18px;position:relative}
+  .opt ul li:before{content:"▸";position:absolute;left:0;color:var(--naranja)}
+  .takeaways{background:var(--verde);color:var(--blanco);padding:30px 32px;border-radius:14px;margin-top:16px}
+  .takeaways h3{color:var(--naranja);margin-top:0}
+  .takeaways ul{list-style:none}
+  .takeaways ul li{padding:8px 0 8px 24px;position:relative;border-bottom:1px solid rgba(255,255,255,.12)}
+  .takeaways ul li:last-child{border:none}
+  .takeaways ul li:before{content:"✦";color:var(--naranja);position:absolute;left:0}
+  .why{background:var(--blanco);padding:24px 28px;border-radius:12px;margin-top:14px}
+  .why p{margin-bottom:10px}
+  .foot{margin-top:60px;padding-top:24px;border-top:1px solid #e3dccf;font-size:13px;color:var(--gris);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  .foot strong{color:var(--verde)}
+  .quote{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--verde);border-left:3px solid var(--naranja);padding:6px 0 6px 18px;margin:24px 0;line-height:1.4}
+  @media print{
+    body{background:var(--blanco)}
+    .wrap{padding:18px}
+    .hero{padding:32px}
+    h2{font-size:24px}
+    .opt{break-inside:avoid}
+    .pricing{break-inside:avoid}
+    a{color:var(--verde)}
+  }
+  @media (max-width:720px){
+    .pricing{grid-template-columns:1fr}
+    h1{font-size:38px}
+    .hero{padding:36px 28px}
+    .wrap{padding:24px 20px 60px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <span class="badge">Propuesta confidencial</span>
+    <h1>El Equipo Invisible</h1>
+    <div class="sub">Una sesión lúdica para una boutique de transformación PYME — diseñada como par metodológico, no proveedor.</div>
+    <div class="meta">AGC · Madrid · Atn. Dirección · Q3 2026</div>
+  </section>
+
+  <p class="lead">AGC se posiciona como boutique de transformación organizacional centrada en ejecución para PYMEs y mercado medio. Trabajo intenso de delivery. Esta sesión es el espacio raro: el grupo directivo de AGC frente a un caso ficticio diseñado por un par metodológico, sin agenda comercial.</p>
+
+  <h2>Qué leemos del reto</h2>
+  <div class="pain">
+    <p><strong>Síntoma observado:</strong> Consultoras boutique con foco en ejecución viven en delivery permanente — el equipo directivo rara vez para a observarse en frío.</p>
+    <p><strong>Causa probable:</strong> Carga de proyecto, foco en cliente, ausencia de espacio sin agenda donde el propio equipo se vea en frío.</p>
+    <p><strong>Lo que no funciona ya:</strong> El comité de delivery. La review trimestral. Hace falta una sesión con caso y debrief con artefacto.</p>
+  </div>
+
+  <div class="quote">Las boutiques de delivery ganan con un par metodológico una vez al año, no con un proveedor de team building.</div>
+
+  <h2>Sesión Inicial</h2>
+  <p><strong>Título de trabajo:</strong> <em>El Equipo Invisible — diseñada como par metodológico, no proveedor.</em></p>
+  <p><strong>Formato:</strong> Online sincrónica (Google Meet o Zoom), comité directivo, cámara obligatoria, breakouts rotativos.</p>
+
+  <div class="timeline">
+    <div class="step">
+      <div class="dur">15 min · Apertura</div>
+      <h4>El Mapa Oculto</h4>
+      <p>Cada persona completa de forma anónima un mapa visual de <em>qué cree saber</em> sobre las áreas del resto. Lo proyectamos en directo. Sin reproches. Es el punto de partida visible del resto del taller.</p>
+    </div>
+    <div class="step">
+      <div class="dur">50 min · Bloque 1 · Comunicación</div>
+      <h4>Caso ficticio de transformación con información asimétrica</h4>
+      <p>Roles asignados, briefings incompletos, caso de PYME industrial ficticia. Decidir el approach de transformación. La fricción de la información es el aprendizaje.</p>
+    </div>
+    <div class="step">
+      <div class="dur">10 min · Pausa activa</div>
+      <h4>Reset corporal y micro-juego</h4>
+      <p>Porque dos horas online sin un descanso no las aguanta nadie.</p>
+    </div>
+    <div class="step">
+      <div class="dur">50 min · Bloque 2 · Liderazgo</div>
+      <h4>Liderar sin saberlo todo</h4>
+      <p>Role-play con liderazgo rotativo. Tres escenarios donde quien decide tiene <em>menos</em> información que su equipo. Aparece lo que normalmente no se nombra: lo que cada uno guarda, por qué, y qué pasa cuando se suelta.</p>
+    </div>
+    <div class="step">
+      <div class="dur">25 min · Debrief y aterrizaje</div>
+      <h4>Patrones y compromisos</h4>
+      <p>Cierre en grupo. Cada persona se lleva <strong>un hábito de comunicación implementable mañana</strong> y el grupo deja por escrito <strong>un acuerdo colectivo</strong> visible para todos.</p>
+    </div>
+  </div>
+
+  <h2>Lo que se llevan</h2>
+  <div class="takeaways">
+    <h3>Take-aways tangibles</h3>
+    <ul>
+      <li>Mapa visual de puntos ciegos de información del equipo (artefacto compartido tras la sesión).</li>
+      <li>1 hábito personal de comunicación, escrito, con fecha y persona testigo.</li>
+      <li>Acuerdo colectivo del equipo directivo (frase corta, una sola).</li>
+      <li>Kit descargable Playing Camp: 3 dinámicas breves para repetir en reuniones de dirección.</li>
+    </ul>
+  </div>
+
+  <h2>Opciones de presupuesto</h2>
+  <p class="lead">Tres formatos, mismo enfoque metodológico. Misma sesión nuclear; la diferencia está en preparación, materiales y seguimiento.</p>
+
+  <div class="pricing">
+    <div class="opt reco">
+      <h3>Esencial</h3>
+      <div class="price">690 €<br><small>+ IVA · sesión única 2 h online</small></div>
+      <ul>
+        <li>Sesión 2 h en vivo</li>
+        <li>1 reunión preparatoria 30 min</li>
+        <li>Resumen post-sesión (1 página)</li>
+        <li>Caso adaptado a vuestro contexto</li>
+      </ul>
+    </div>
+    <div class="opt">
+      <h3>Inmersiva</h3>
+      <div class="price">990 €<br><small>+ IVA · 2,5 h online + materiales + follow-up</small></div>
+      <ul>
+        <li>Sesión 2,5 h en vivo, todos los bloques</li>
+        <li>2 reuniones preparatorias</li>
+        <li>Kit descargable de 3 dinámicas</li>
+        <li>Mapa visual del equipo (entregable)</li>
+        <li>Follow-up 30 min a 3 semanas</li>
+      </ul>
+    </div>
+    <div class="opt">
+      <h3>Híbrido (siembra)</h3>
+      <div class="price">desde 2.450 €<br><small>+ IVA · online + jornada presencial</small></div>
+      <ul>
+        <li>Todo lo de Inmersiva</li>
+        <li>+ jornada team building presencial 4 h</li>
+        <li>Sesión de aterrizaje a 6 semanas</li>
+        <li>Acompañamiento entre fases</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Por qué Playing Camp</h2>
+  <div class="why">
+    <p><strong>Juego como instrumento serio.</strong> No animación. El juego bien diseñado revela cómo decide y comunica un grupo bajo presión real, sin que nadie se sienta examinado.</p>
+    <p><strong>Diseño a medida del reto, no plantilla.</strong> Cada dinámica se ajusta al sector y al perfil del grupo. Sesión compacta de alto retorno por hora. Sin plantilla. Diseño a medida del sector.</p>
+    <p><strong>Confidencialidad y tono.</strong> Lo que pasa dentro de la sesión queda dentro. El facilitador no informa de individuos a dirección. Eso es lo que hace que se suelten cosas que no se sueltan en una reunión normal.</p>
+  </div>
+
+  <h2>Próximos pasos</h2>
+  <ul class="clean">
+    <li><strong>Presentación de la propuesta</strong> al comité.</li>
+    <li>Agendamos <strong>follow-up de 20–30 min</strong> la próxima semana para resolver dudas y elegir formato.</li>
+    <li>Confirmada la opción, fijamos fecha y cerramos contenidos en <strong>2-3 semanas</strong>.</li>
+    <li>Facturación al cerrar fecha · 50% reserva, 50% al ejecutar.</li>
+  </ul>
+
+  <div class="foot">
+    <div>
+      <strong>Carlos Alcalá Marcos</strong><br>
+      Playing Camp<br>
+      hello@playingcamp.com · playingcamp.com
+    </div>
+    <div style="text-align:right">
+      Propuesta válida 30 días<br>
+      Q3 2026 · Documento confidencial
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

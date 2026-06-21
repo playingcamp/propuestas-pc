@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "avansel",
+    "nombre": "Avansel Selección",
+    "ciudad": "Madrid",
+    "tier": "inmersiva",
+    "asunto": "Avansel × Playing Camp — sesión disruptiva para el equipo que enseña Teal",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/avansel/"
+  },
+  {
+    "slug": "smartway",
+    "nombre": "SmartWay",
+    "ciudad": "Madrid",
+    "tier": "inmersiva",
+    "asunto": "SmartWay × Playing Camp — sesión ágil para el equipo que enseña agilidad",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/smartway/"
+  },
+  {
+    "slug": "olivia",
+    "nombre": "Olivia",
+    "ciudad": "Madrid",
+    "tier": "inmersiva",
+    "asunto": "Olivia × Playing Camp — sesión cohesión equipos directivos cross-cultural",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/olivia/"
+  },
+  {
+    "slug": "instituto-gestion-cambio",
+    "nombre": "Instituto de Gestión del Cambio",
+    "ciudad": "Madrid",
+    "tier": "esencial",
+    "asunto": "Instituto Gestión Cambio × Playing Camp — facilitación externa para vuestro propio equipo",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/instituto-gestion-cambio/"
+  },
+  {
+    "slug": "walterman",
+    "nombre": "Walterman",
+    "ciudad": "Madrid",
+    "tier": "inmersiva",
+    "asunto": "Walterman × Playing Camp — sesión equipo directivo cross-border ES + LATAM",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/walterman/"
+  },
+  {
+    "slug": "astratech",
+    "nombre": "Astratech Consulting",
+    "ciudad": "Madrid",
+    "tier": "esencial",
+    "asunto": "Astratech × Playing Camp — sesión equipo directivo, formato compacto alto retorno",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/astratech/"
+  },
+  {
+    "slug": "kakuma",
+    "nombre": "Kakuma Solutions",
+    "ciudad": "Madrid",
+    "tier": "inmersiva",
+    "asunto": "Kakuma × Playing Camp — sesión equipo directivo, par profesional",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/kakuma/"
+  },
+  {
+    "slug": "celtiberian",
+    "nombre": "Celtiberian Consulting",
+    "ciudad": "Madrid",
+    "tier": "esencial",
+    "asunto": "Celtiberian × Playing Camp — sesión socios, romper silos por diseño",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/celtiberian/"
+  },
+  {
+    "slug": "montaner",
+    "nombre": "Montaner & Asociados",
+    "ciudad": "Bilbao / Valencia / Sevilla",
+    "tier": "hibrido",
+    "asunto": "Montaner × Playing Camp — sesión cross-oficina Bilbao / Valencia / Sevilla",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/montaner/"
+  },
+  {
+    "slug": "gra-consultores",
+    "nombre": "G|R|A Consultores",
+    "ciudad": "Valencia",
+    "tier": "inmersiva",
+    "asunto": "G|R|A × Playing Camp — sesión para asesores de empresa familiar",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/gra-consultores/"
+  },
+  {
+    "slug": "family-business-solutions",
+    "nombre": "Family Business Solutions",
+    "ciudad": "Madrid",
+    "tier": "inmersiva",
+    "asunto": "Family Business Solutions × Playing Camp — sesión para mediadores familiares",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/family-business-solutions/"
+  },
+  {
+    "slug": "martinez-asociados",
+    "nombre": "Martínez y Asociados",
+    "ciudad": "Valencia",
+    "tier": "esencial",
+    "asunto": "Martínez y Asociados × Playing Camp — sesión equipo asesor sucesión",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/martinez-asociados/"
+  },
+  {
+    "slug": "improven",
+    "nombre": "Improven",
+    "ciudad": "Valencia / Madrid",
+    "tier": "inmersiva",
+    "asunto": "Improven × Playing Camp — sesión Estrategia · Cultura · Personas para dentro",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/improven/"
+  },
+  {
+    "slug": "talentlab",
+    "nombre": "Talentlab",
+    "ciudad": "Madrid",
+    "tier": "inmersiva",
+    "asunto": "Talentlab × Playing Camp — sesión de cohesión para el equipo que vende cohesión",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/talentlab/"
+  },
+  {
+    "slug": "agc",
+    "nombre": "AGC",
+    "ciudad": "Madrid",
+    "tier": "esencial",
+    "asunto": "AGC × Playing Camp — sesión equipo directivo, par metodológico",
+    "url": "https://playingcamp.github.io/propuestas-pc/outreach-q3-2026/agc/"
+  }
+]
